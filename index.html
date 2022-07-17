@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>Trivia!</title>
+
+</head>
+
+<body>
+    <div class="header">
+        <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Part 1: Multiple Choice </h2>
+            <hr>
+            <!-- TODO: Add multiple choice question here -->
+            <h3>Who leads week 8 with CS50?(SoftServe)</h3>
+            <div id="part_one"></div>
+            <button class="reply" id="reply_one">Ira Zavushchak</button>
+            <button class="reply" id="reply_two">Yura</button>
+            <button class="reply" id="reply_three">Vyacheslav</button>
+            <button class="reply" id="reply_four">Viktoria</button>
+        </div>
+
+        <div class="section">
+            <h2>Part 2: Free Response</h2>
+            <hr>
+            <!-- TODO: Add free response question here -->
+            <h3>Батько наш - ..!?</h3>
+            <input id="input" type="text">
+            <button id="check">Check</button>
+            <div id="part_two"></div>
+        </div>
+    </div>
+
+    <script>
+        // TODO: Add code to check answers to questions
+        document.getElementById("reply_one").addEventListener("click", clickButton);
+        function clickButton() {
+            document.getElementById("reply_four").style.backgroundColor = "#d9edff";
+            document.getElementById("reply_two").style.backgroundColor = "#d9edff";
+            document.getElementById("reply_three").style.backgroundColor = "#d9edff";
+            document.getElementById("reply_one").style.backgroundColor = "red";
+            document.getElementById("part_one").innerHTML = "Incorrect";
+        }
+        document.getElementById("reply_two").addEventListener("click", clickButtonTwo);
+        function clickButtonTwo() {
+            document.getElementById("reply_four").style.backgroundColor = "#d9edff";
+            document.getElementById("reply_one").style.backgroundColor = "#d9edff";
+            document.getElementById("reply_three").style.backgroundColor = "#d9edff";
+            document.getElementById("reply_two").style.backgroundColor = "red";
+            document.getElementById("part_one").innerHTML = "Incorrect";
+        }
+        document.getElementById("reply_three").addEventListener("click", clickButtonThree);
+        function clickButtonThree() {
+            document.getElementById("reply_one").style.backgroundColor = "#d9edff";
+            document.getElementById("reply_two").style.backgroundColor = "#d9edff";
+            document.getElementById("reply_four").style.backgroundColor = "#d9edff";
+            document.getElementById("reply_three").style.backgroundColor = "green";
+            document.getElementById("part_one").innerHTML = "Correct";
+        }
+        document.getElementById("reply_four").addEventListener("click", clickButtonFour);
+        function clickButtonFour() {
+            document.getElementById("reply_one").style.backgroundColor = "#d9edff";
+            document.getElementById("reply_two").style.backgroundColor = "#d9edff";
+            document.getElementById("reply_three").style.backgroundColor = "#d9edff";
+            document.getElementById("reply_four").style.backgroundColor = "red";
+            document.getElementById("part_one").innerHTML = "Incorrect";
+        }
+
+        document.getElementById("check").addEventListener("click", function () {
+            let inputval = document.getElementById("input").value;
+            if (inputval === 'бандера' || inputval === 'Бандера' || inputval === 'БАНДЕРА') {
+                document.getElementById("input").style.backgroundColor = "green";
+                document.getElementById("part_two").innerHTML = "Correct";
+            } else {
+                document.getElementById("input").style.backgroundColor = "red";
+                document.getElementById("part_two").innerHTML = "Incorrect";
+            }
+        });
+    </script>
+</body>
+
+</html>
